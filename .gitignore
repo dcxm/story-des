@@ -1,3 +1,4 @@
 node_modules
 build
 database/database.sqlite
+debug.log
