@@ -1,0 +1,36 @@
+{
+  "name": "story-desktop",
+  "version": "1.0.0",
+  "description": "Hello Story!",
+  "main": "index.js",
+  "build": {
+    "appId": "story.id",
+    "directories": {
+      "output": "build"
+    }
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "cross-env NODE_ENV=development concurrently \"cd client && npm start\" \"electron .\"",
+    "reactBuilded": "cross-env NODE_ENV=production electron .",
+    "reactBuild": "cd client && npm run build",
+    "start": "cross-env NODE_ENV=development electron .",
+    "pack": "cross-env NODE_ENV=production electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "keywords": [],
+  "author": "GD",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^5.2.0",
+    "cross-env": "^7.0.2",
+    "electron": "^9.1.2",
+    "electron-builder": "^22.8.0"
+  },
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "pack": "^2.2.0",
+    "sequelize": "^6.3.4",
+    "sqlite3": "^5.0.0"
+  }
+}

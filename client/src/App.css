@@ -1,0 +1,131 @@
+body {
+  margin: 0;
+  background-color: hsl(0, 0%, 95%) !important;
+}
+
+html {
+  height: 100vh;
+  overflow-y: auto;
+}
+
+::selection {
+  background: rgb(243, 191, 148);
+}
+
+/* quill*/
+
+.ql-editor {
+  line-height: 2em !important;
+  min-height: 70vh;
+  overflow-y: auto;
+  font-size: 16px;
+  font-family: "Roboto";
+}
+
+.ql-container {
+  border: none !important;
+  background-color: white;
+  padding: 5em 3em;
+  min-height: 80vh;
+}
+
+.quill-container {
+  min-height: 100%;
+}
+
+.m-bottom {
+  margin-bottom: 2em !important;
+}
+
+.aww {
+  width: 100%;
+}
+/* This is to remove the arrow of select element in IE */
+.aww::-ms-expand {
+  display: none;
+}
+.aww {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.ql-picker-label svg {
+  display: none;
+}
+
+.ql-picker-label:focus {
+  outline: #8a620c solid 1px;
+}
+
+.ql-toolbar.ql-snow .ql-picker-label {
+  border: none;
+}
+/* 
+.MuiInputBase-inputMultiline {
+  line-height: 2em !important;
+} */
+
+/* .ql-toolbar *:hover, .ql-toolbar *:active, .ql-toolbar *:focus {
+  color: #8a620c;
+} */
+
+.ql-header:focus,
+.ql-header:active {
+  outline: none;
+  outline-color: none;
+}
+
+.ql-snow.ql-toolbar button svg,
+.ql-snow .ql-toolbar button svg {
+  float: none;
+}
+
+.ql-toolbar .ql-stroke {
+  fill: none;
+  stroke: rgb(46, 46, 46) !important;
+}
+
+.ql-active .ql-stroke {
+  fill: none !important;
+  stroke: #c98b44 !important;
+}
+
+.ql-toolbar .ql-fill {
+  fill: rgb(46, 46, 46) !important;
+  stroke: none !important;
+}
+
+.ql-toolbar .ql-stroke .ql-active {
+  fill: rgb(46, 46, 46) !important;
+  stroke: none !important;
+}
+
+.ql-toolbar .ql-picker {
+  color: rgb(46, 46, 46) !important;
+}
+
+.ql-snow.ql-toolbar button:hover,
+.ql-snow .ql-toolbar button:hover,
+.ql-snow.ql-toolbar button:focus,
+.ql-snow .ql-toolbar button:focus,
+.ql-snow.ql-toolbar button.ql-active,
+.ql-snow .ql-toolbar button.ql-active,
+.ql-snow.ql-toolbar .ql-picker-label:hover,
+.ql-snow .ql-toolbar .ql-picker-label:hover,
+.ql-snow.ql-toolbar .ql-picker-label.ql-active,
+.ql-snow .ql-toolbar .ql-picker-label.ql-active,
+.ql-snow.ql-toolbar .ql-picker-item:hover,
+.ql-snow .ql-toolbar .ql-picker-item:hover,
+.ql-snow.ql-toolbar .ql-picker-item.ql-selected,
+.ql-snow .ql-toolbar .ql-picker-item.ql-selected {
+  color: #c98b44 !important;
+}
+
+.ql-formats button:hover .ql-stroke {
+  fill: none !important;
+  stroke: #c98b44 !important;
+}
+
+.ql-formats .MuiButton-root {
+  min-width: 44px;
+}
