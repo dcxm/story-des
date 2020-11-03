@@ -1,24 +1,9 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import {
-    Dialog,
-    Slide,
-    Toolbar,
-    Typography,
-    List,
-    ListItem,
-    ListItemText,
-    Divider,
     Card,
-    AppBar,
-    IconButton,
     Button,
     Grid,
-    Box,
-    CircularProgress,
-    Container,
-    Tabs,
-    Tab,
-    ThemeProvider
+    Box
 } from '@material-ui/core';
 import { useTheme } from "@material-ui/styles";
 import { Draggable } from "react-beautiful-dnd";
@@ -92,8 +77,8 @@ const ChapterItem = ({ item, index, handleWrite, handleEdit, handleDelete, loadi
                     }
                 </Draggable>
             }
-            <TextReaderDialog 
-                open={plotDialogOpen} 
+            <TextReaderDialog
+                open={plotDialogOpen}
                 setOpen={() => setPlotDialogOpen(!plotDialogOpen)}
                 title={`"${item.title}" plot`}
                 text={item.plot}

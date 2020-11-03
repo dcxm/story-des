@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment } from "react";
 
 import { connect } from "react-redux";
 import deleteItemsAction from "../../store/actions/deleteItemsAction";
@@ -12,7 +12,6 @@ import DetailsButton from "../buttons/DetailsButton"
 import WriteButton from "../buttons/WriteButton"
 
 const SimpleListActions = withRouter(({ id, type, history, itemName }) => {
-  const [isDownloadDialOpen, setIsDownloadDialOpen] = useState(false)
 
   const editAction = () => {
     history.push(`/shorts/edit/${id}`)

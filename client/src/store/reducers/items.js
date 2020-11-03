@@ -15,7 +15,7 @@ const initial = {
 
 const removeItem = (arrOfObjFrom, indexItem) => {
   const newArr = arrOfObjFrom.slice();
-  const index = newArr.findIndex(item => item.dataValues.id == indexItem);
+  const index = newArr.findIndex(item => item.dataValues.id === indexItem);
   newArr.splice(index, 1);
   return newArr;
 }

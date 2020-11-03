@@ -1,6 +1,6 @@
 import React from 'react'
 import { Button, Box, CircularProgress } from "@material-ui/core";
-import { makeStyles, useTheme } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 
 import {connect} from "react-redux";
 import loadingAction from "../../store/actions/loadingAction";
@@ -12,7 +12,6 @@ const useStyle = makeStyles({
 });
 
 const SaveButton = ({ saveAction, loading, setLoading }) => {
-    const theme = useTheme();
     const classes = useStyle();
 
     const handleSave = () => {

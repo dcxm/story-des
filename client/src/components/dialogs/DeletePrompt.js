@@ -1,15 +1,9 @@
-import React, { useState } from 'react'
+import React from 'react'
 import {
     Dialog,
-    Toolbar,
     Typography,
     DialogContent,
-    Divider,
-    CircularProgress,
     Button,
-    AppBar,
-    Slide,
-    IconButton,
     DialogActions,
     Box
 } from '@material-ui/core';
@@ -24,10 +18,9 @@ const useStyle = makeStyles({
     }
 });
 
-const DeletePrompt = ({ open, setOpen, deleteAction, itemId, loading }) => {
+const DeletePrompt = ({ open, setOpen, deleteAction }) => {
 
     const handleClose = () => setOpen();
-    const classes = useStyle();
 
     return (
         <Dialog maxWidth="lg" open={open} onClose={handleClose} >

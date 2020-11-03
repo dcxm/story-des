@@ -4,7 +4,6 @@ import {
     Divider,
     TextField,
     Button,
-    FormControlLabel,
     Grid,
     CircularProgress,
     Box,
@@ -55,13 +54,15 @@ const AddNovel = ({ setNovels, setOpen, setLoading, loading, setSnackbarOpen, se
             return;
         }
     }
+    
     const handleTitleChange = (e) => {
         setError({error: false, msg: null});
         setNovelData({ ...novelData, title: e.target.value })
     };
+    
     const handlePlotChange = (e) => setNovelData({ ...novelData, plot: e.target.value });
-    const handleChapterSwitchChange = (e) => setNovelData({ ...novelData, isChapters: !novelData.isChapters });
     const handleCompletedSwitchChange = (e) => setNovelData({ ...novelData, completed: !novelData.completed });
+
     return (
         <Box mt={4}>
             <Container maxWidth="lg">

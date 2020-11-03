@@ -74,11 +74,6 @@ function Edit({ loading, setLoading }) {
         }
     }
 
-    const handleFocus = e => {
-        e.preventDefault();
-        e.stopPropagation();
-    }
-
     const handleQuillChange = (value) => setContent(value)
 
     return (

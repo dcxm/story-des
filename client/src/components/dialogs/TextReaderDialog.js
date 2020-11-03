@@ -2,28 +2,14 @@ import React from 'react'
 
 import {
     Dialog,
-    Slide,
-    Toolbar,
     Typography,
-    List,
-    ListItem,
-    ListItemText,
     Divider,
-    AppBar,
     IconButton,
-    Card,
-    CardHeader,
-    CardContent,
     Button,
     Grid,
     Box,
-    Container,
     DialogActions,
     DialogContent,
-    DialogContentText,
-    DialogTitle,
-    Tabs,
-    Tab
 } from '@material-ui/core';
 
 import CloseIcon from '@material-ui/icons/Close';
@@ -62,22 +48,22 @@ const TextReaderDialog = ({ open, setOpen, text, title }) => {
             <Divider />
             <Box my={2} mx={2} py={2} px={3} style={{ overflow: "hidden" }}>
                 <DialogContent>
-                   {text && text.length > 0 ? <Typography
+                    {text && text.length > 0 ? <Typography
                         variant="body1"
                         style={{
                             lineHeight: "2em",
                             whiteSpace: "pre-wrap"
-                    }}>
+                        }}>
                         {text}
                     </Typography>
-                    :
-                    <Typography
-                        variant="body1"
-                        style={{lineHeight: "2em"}}
-                    >
-                        No content here.
-                    </Typography>    
-                }
+                        :
+                        <Typography
+                            variant="body1"
+                            style={{ lineHeight: "2em" }}
+                        >
+                            No content here.
+                    </Typography>
+                    }
                 </DialogContent>
             </Box>
             <DialogActions>

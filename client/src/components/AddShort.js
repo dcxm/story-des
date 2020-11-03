@@ -1,15 +1,7 @@
 import React, { useState } from "react";
 import {
-    Dialog,
-    Slide,
-    Toolbar,
     Typography,
-    List,
-    ListItem,
-    ListItemText,
     Divider,
-    AppBar,
-    IconButton,
     TextField,
     Button,
     CircularProgress,
@@ -18,17 +10,11 @@ import {
     Box,
     Card,
     CardHeader,
-    CardContent,
     Container,
-    Tabs,
-    Tab
 } from '@material-ui/core';
-import AddIcon from '@material-ui/icons/Add';
-import DeleteIcon from '@material-ui/icons/Delete';
-import { makeStyles, useTheme } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 
 import { connect } from "react-redux";
-import setItems from "../store/actions/setItems";
 import addItem from "../store/actions/addItem";
 import loadingAction from "../store/actions/loadingAction";
 import { setSnackbarMessage, setSnackbarOpen } from "../store/actions/snackbarActions";
@@ -40,7 +26,6 @@ const useStyle = makeStyles({
 });
 
 const AddShort = ({ setShorts, setOpen, loading, setLoading, setSnackbarOpen, setSnackbarMessage }) => {
-    const theme = useTheme();
     const classes = useStyle();
     const [shortStoryData, setShortStoryData] = useState({
         title: "",
@@ -48,6 +33,7 @@ const AddShort = ({ setShorts, setOpen, loading, setLoading, setSnackbarOpen, se
         completed: false
     });
     const [error, setError] = useState({ error: false, msg: null });
+
     const saveShort = () => {
         if (loading.loading !== true && loading.component !== "button:save") {
             if (shortStoryData.title.length > 0) {

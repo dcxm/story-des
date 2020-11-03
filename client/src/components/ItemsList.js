@@ -1,11 +1,17 @@
-import React, { useState, useEffect, useCallback } from 'react'
+import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import getItemsAction from "../store/actions/getItemsAction";
-import updateItem from "../store/actions/updateItem";
 
 import { useParams } from 'react-router-dom'
 
-import { Button, Typography, Box, Grid, Container, CardHeader, CardContent, Card } from "@material-ui/core";
+import {
+    Button,
+    Typography,
+    Box,
+    Grid,
+    Container,
+    Card
+} from "@material-ui/core";
 
 import SimpleListActions from "../components/Home/SimpleListActions"
 import TextReaderDialog from "../components/dialogs/TextReaderDialog"
@@ -16,7 +22,7 @@ const ItemsList = ({ novels, shortStories, getItems, updateItem }) => {
     const [plotDialogOpen, setPlotDialogOpen] = useState();
     const [plotReaderItem, setPlotReaderItem] = useState({});
     const [clearedType, setClearedType] = useState('');
-    
+
     useEffect(() => {
         getItems("novel", "novels")
         getItems("shortStory", "shortStories")

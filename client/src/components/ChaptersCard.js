@@ -3,8 +3,6 @@ import { connect } from "react-redux"
 import {
     Card,
     CardContent,
-    Grid,
-    Box,
     Collapse
 } from '@material-ui/core';
 

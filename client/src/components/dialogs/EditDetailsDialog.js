@@ -1,13 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import {
     Dialog,
-    Toolbar,
-    Typography,
     DialogContent,
     Divider,
-    AppBar,
-    Slide,
-    IconButton,
     DialogActions,
     Box
 } from '@material-ui/core';
