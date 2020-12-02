@@ -33,6 +33,8 @@ function Edit({ loading, setLoading }) {
             if (args[0].dataValues.content) {
                 setContent(args[0].dataValues.content)
                 setLoading({ loading: false, component: "" });
+                quillRef.current.history.clear()
+                quillRef.current.focus()
             }
             setLoading({ loading: false, component: "" });
         })
@@ -57,14 +59,15 @@ function Edit({ loading, setLoading }) {
             quillRef.current.format('align', 'justify')
         })
         //  header shortcuts
-
+        
         for (let i = 0; i <= 6; i++) {
             quillRef.current.keyboard.addBinding({ key: `${i}`, altKey: true }, (range) => {
                 quillRef.current.format('header', `${i === 0 ? '' : i}`)
             })
         }
-    }
 
+    }
+    
     const saveContent = () => {
         if (document.querySelector(".ql-editor")) {
             window.ipcRenderer.send(`database:update-${type === "chapter" ? "chapter" : "shortStory"}`, { id: item.id, content })
@@ -73,8 +76,20 @@ function Edit({ loading, setLoading }) {
             })
         }
     }
-
+    
     const handleQuillChange = (value) => setContent(value)
+    
+    // const quillOnPaste = (e) => {
+    //     e.preventDeafult()
+    //     e.stopPropagation()
+    //     quillRef.current.container.style.position = 'fixed';
+    //     quillRef.current.container.style.zIndex = '-1';
+    //     quillRef.current.focus()
+    // }
+    
+    const headerHeight = document.querySelector('header') && document.querySelector('header').offsetHeight
+    const toolbarHeight = "5em"
+    
 
     return (
         <Fragment>
@@ -88,11 +103,11 @@ function Edit({ loading, setLoading }) {
                     height: "80vh"
                 }}><CircularProgress color="primary" disableShrink style={{ margin: "2em" }} size={75} /><Typography variant="h6">Loading...</Typography></div>
             }
-            < div style={{
-                display: loading.loading && loading.component === "edit" ? "none" : "block",
-                height: "100%"
-            }}>
-                <div style={{ position: "relative", width: "100%", marginTop: "-2em", height: "5em" }}>
+            < div
+                style={{
+                    display: loading.loading && loading.component === "edit" ? "none" : "block",
+                }}>
+                <div style={{ position: "relative", width: "100%", marginTop: "-2em", height: toolbarHeight }}>
                     <div style={{ position: "absolute", top: "21%", width: "100%", height: "100%" }}>
                         <div style={{ position: "fixed", right: "2%", zIndex: "100" }} >
                             <EditorFocusfab display={display} onClick={handleDisplay} style={{ top: 0, right: "120%", zIndex: "100", transform: "translate(10%, 10%)" }} />
@@ -103,21 +118,45 @@ function Edit({ loading, setLoading }) {
                             display={display}
                             editedTitle={item.title}
                             saveContent={saveContent}
-                            style={{ padding: "1.25em", position: "fixed", border: "none", zIndex: "1", width: "100%", margin: 0, backgroundColor: "white" }} />
+                            style={{
+                                padding: "1.25em",
+                                position: "fixed",
+                                border: "none",
+                                zIndex: "1",
+                                width: "100%",
+                                margin: 0,
+                                backgroundColor: "white"
+                            }} />
                     </div>
                 </div>
-                <Container maxWidth="md" style={{ height: "80vh", marginTop: display ? "" : "-4.9em" }}>
-                    <ReactQuill
-                        ref={(el) => { reactQuillRef = el }}
-                        modules={modules}
-                        preserveWhitespace
-                        theme='snow'
-                        formats={["bold", "italic", "header", "size", "align", "newline", "underline"]}
-                        value={content}
-                        onKeyUp={() => saveContent()}
-                        onChange={handleQuillChange}
-                    />
-                </Container>
+                <div
+                    className="quill-scroll-container"
+                    style={{
+                        height: `calc((100vh - ${headerHeight}px) ${display ? `- ${toolbarHeight}` : ''})`,
+                        marginTop: display ? "" : "-5em",
+                        overflow: "auto"
+                    }}
+                    >
+                    <Container
+                        maxWidth="md"
+                        style={{
+                            height: `calc((100vh - ${headerHeight}px) - 5em)`,
+                        }}
+                        >
+                        <ReactQuill
+                            ref={(el) => { reactQuillRef = el }}
+                            // onPaste={quillOnPaste}
+                            modules={modules}
+                            preserveWhitespace
+                            scrollingContainer=".quill-scroll-container"
+                            theme="snow"
+                            formats={["bold", "italic", "header", "size", "align", "newline", "underline"]}
+                            value={content}
+                            onKeyUp={() => saveContent()}
+                            onChange={handleQuillChange}
+                        />
+                    </Container>
+                </div>
             </div >
         </Fragment>
 
