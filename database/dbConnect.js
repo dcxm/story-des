@@ -13,7 +13,7 @@ createDbDir();
 
 const storagePath = process.env.NODE_ENV !== 'development' ?
     path.join(app.getPath('userData'), 'db', 'story-db.sqlite')
-    : path.join(__dirname, 'database', 'database.sqlite');
+    : path.join(__dirname, 'database.sqlite');
     
 const sequelize = new Sequelize({
     dialect: "sqlite",

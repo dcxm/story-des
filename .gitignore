@@ -1,4 +1,4 @@
 node_modules
 build
-database/database.sqlite
+*/database.sqlite
 debug.log
