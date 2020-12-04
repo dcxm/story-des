@@ -47,10 +47,11 @@ class ChapterEvents extends DatabaseEvents {
             } else {
                 if (args) {
                     this.controllerInstance.update({ id: args.id }, { ...args, id: args.id })
-                        .then(response => {
-                            this.controllerInstance.get({id: args.id}).then(chapterResponse => {
-                                event.sender.send(`database:update-${this.modelName}`, chapterResponse);
-                            })
+                        .then(() => {
+                            this.controllerInstance.get({ id: args.id })
+                                .then(chapterResponse => {
+                                    event.sender.send(`database:update-${this.modelName}`, chapterResponse);
+                                })
                         })
                 }
             }

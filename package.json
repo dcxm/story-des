@@ -15,7 +15,7 @@
     "reactBuilded": "cross-env NODE_ENV=production electron .",
     "reactBuild": "cd client && npm run build",
     "start": "cross-env NODE_ENV=development electron .",
-    "pack": "cross-env NODE_ENV=production electron-builder --dir",
+    "pack": "npm run reactBuild && cross-env NODE_ENV=production electron-builder --dir",
     "dist": "electron-builder"
   },
   "keywords": [],

@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { connect } from "react-redux";
 import {
     Card,
     Button,
@@ -13,10 +14,8 @@ import EditButton from "./buttons/EditButton"
 import DeleteButton from "./buttons/DeleteButton";
 
 import SmallCircularLoading from "./SmallCircularLoading";
-
-import { connect } from "react-redux";
-
 import TextReaderDialog from "./dialogs/TextReaderDialog";
+import CompletedButton from './buttons/CompletedButton'
 
 const ChapterItem = ({ item, index, handleWrite, handleEdit, handleDelete, loading }) => {
     const theme = useTheme();
@@ -43,9 +42,15 @@ const ChapterItem = ({ item, index, handleWrite, handleEdit, handleDelete, loadi
                                         <Grid container alignItems="center">
                                             <Grid item xs={1} align="center">
                                                 {index + 1}.
-                                        </Grid>
-                                            <Grid item xs={6}>
+                                            </Grid>
+                                            <Grid item xs={4}>
                                                 {item.title}
+                                            </Grid>
+                                            <Grid item xs={2} align="center">
+                                                <CompletedButton
+                                                    item={item}
+                                                    type="chapters"
+                                                />
                                             </Grid>
                                             <Grid item xs={2}>
                                                 <Button
